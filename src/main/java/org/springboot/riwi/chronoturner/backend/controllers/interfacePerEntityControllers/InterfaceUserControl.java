@@ -1,6 +1,6 @@
-package org.springboot.riwi.chronoturner.backend.Controllers.InterfacesPerEntityControllers;
+package org.springboot.riwi.chronoturner.backend.controllers.interfacePerEntityControllers;
 
-import org.springboot.riwi.chronoturner.backend.Controllers.GenericMethods.Save;
+import org.springboot.riwi.chronoturner.backend.controllers.genericMethods.Save;
 import org.springboot.riwi.chronoturner.backend.dtos.request.UserRequestDTO;
 import org.springboot.riwi.chronoturner.backend.entities.User;
 
