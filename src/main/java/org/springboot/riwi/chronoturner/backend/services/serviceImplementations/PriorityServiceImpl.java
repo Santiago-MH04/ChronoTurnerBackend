@@ -1,4 +1,4 @@
-package org.springboot.riwi.chronoturner.backend.services.implementations;
+package org.springboot.riwi.chronoturner.backend.services.serviceImplementations;
 
 import org.springboot.riwi.chronoturner.backend.entities.Priority;
 import org.springboot.riwi.chronoturner.backend.repositories.PriorityRepository;

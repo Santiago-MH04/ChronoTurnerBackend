@@ -1,6 +1,5 @@
-package org.springboot.riwi.chronoturner.backend.services.implementations;
+package org.springboot.riwi.chronoturner.backend.services.serviceImplementations;
 
-import org.springboot.riwi.chronoturner.backend.dtos.request.TaskRequestDTO;
 import org.springboot.riwi.chronoturner.backend.entities.Task;
 import org.springboot.riwi.chronoturner.backend.repositories.TaskRepository;
 import org.springboot.riwi.chronoturner.backend.services.entityServices.TaskService;
