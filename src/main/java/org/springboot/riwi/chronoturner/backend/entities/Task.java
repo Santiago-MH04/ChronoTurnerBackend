@@ -42,6 +42,8 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "")
     private User userEntity;
+
+
     //Constructores de Task
     //Asignadores de atributos de Task (setters)
     //Lectores de atributos de Task (getters)
