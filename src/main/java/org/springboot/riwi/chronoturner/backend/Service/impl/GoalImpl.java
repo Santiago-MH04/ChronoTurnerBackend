@@ -2,7 +2,7 @@ package org.springboot.riwi.chronoturner.backend.Service.impl;
 
 import org.springboot.riwi.chronoturner.backend.Repository.GoalRepository;
 import org.springboot.riwi.chronoturner.backend.Service.interfaces.IGoalService;
-import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequest;
+import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequestDTO;
 import org.springboot.riwi.chronoturner.backend.dtos.response.GoalResponse;
 import org.springboot.riwi.chronoturner.backend.entities.Goal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class GoalImpl implements IGoalService {
 
 
     @Override
-    public Goal create(GoalRequest goalDTO) {
+    public Goal create(GoalRequestDTO goalDTO) {
 
 
         //DTO --> entidad

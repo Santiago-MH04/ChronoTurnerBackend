@@ -8,7 +8,7 @@ import org.springboot.riwi.chronoturner.backend.services.methodServices.UpdateSe
 import org.springboot.riwi.chronoturner.backend.services.methodServices.ReadByIdService;
 
 public interface TaskService extends ReadByIdService<String, Task>,
-                                     /*SaveService<Task, TaskRequestDTO>,*/ //Favor corregir mañana con inmediatez
+                                     SaveService<Task, TaskRequestDTO>, //Favor corregir mañana con inmediatez
                                      UpdateService<Task>,
                                      RemoveService<String> {
     //Atributos de TaskService

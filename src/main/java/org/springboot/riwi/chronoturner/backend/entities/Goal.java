@@ -43,7 +43,7 @@ public class Goal {
         if (this.startDate == null) {
             this.startDate = LocalDateTime.now();
         }
-        this.status=StatusGoal.STARTED;
+        this.status = StatusGoal.STARTED;
     }
 
 }

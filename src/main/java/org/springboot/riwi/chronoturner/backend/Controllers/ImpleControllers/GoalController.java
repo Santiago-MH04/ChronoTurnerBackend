@@ -1,12 +1,12 @@
-package org.springboot.riwi.chronoturner.backend.Controllers.ImpleControllers;
+package org.springboot.riwi.chronoturner.backend.controllers.ImpleControllers;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springboot.riwi.chronoturner.backend.Controllers.InterfacesPerEntityControllers.InterfaceGoalControl;
+import org.springboot.riwi.chronoturner.backend.controllers.InterfacesPerEntityControllers.InterfaceGoalControl;
 
 import org.springboot.riwi.chronoturner.backend.Service.interfaces.IGoalService;
 import org.springboot.riwi.chronoturner.backend.dtos.exception.NoUserIdException;
-import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequest;
+import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequestDTO;
 import org.springboot.riwi.chronoturner.backend.dtos.response.GoalResponse;
 import org.springboot.riwi.chronoturner.backend.entities.Goal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.net.SocketTimeoutException;
 @RestController
 @RequestMapping("/goals")
 @Tag(name="Goals")
-public class GoalController implements InterfaceGoalControl {
+public class GoalController implements InterfaceGoalControl {   //Mover a la carpeta controllerImplementations, una vez se hayan resuelto los errores
 
 
     @Autowired
@@ -35,7 +35,7 @@ public class GoalController implements InterfaceGoalControl {
 
     @Override
     @PostMapping
-    public ResponseEntity<Goal> create(@RequestBody  @Valid GoalRequest goal) throws ServiceUnavailableException {
+    public ResponseEntity<Goal> create(@RequestBody  @Valid GoalRequestDTO goal) throws ServiceUnavailableException {
         if (maintenanceMode) {
             throw new ServiceUnavailableException("El servidor está en mantenimiento. Por favor, inténtelo más tarde.");
         }
