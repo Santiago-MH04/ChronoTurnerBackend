@@ -1,6 +1,7 @@
 package org.springboot.riwi.chronoturner.backend.controllers.controllerImplementations;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springboot.riwi.chronoturner.backend.controllers.interfacePerEntityControllers.InterfaceTaskControl;
 import org.springboot.riwi.chronoturner.backend.dtos.request.TaskRequestDTO;
 import org.springboot.riwi.chronoturner.backend.entities.Task;
@@ -32,7 +33,7 @@ public class TaskController implements InterfaceTaskControl {   //Aquí falta ta
 
     @Override
     @PostMapping
-    public ResponseEntity<Task> create(@RequestBody TaskRequestDTO dtoEntity) throws ServiceUnavailableException {
+    public ResponseEntity<Task> create(@RequestBody @Valid TaskRequestDTO dtoEntity) throws ServiceUnavailableException {
         return ResponseEntity.ok(this.taskService.save(dtoEntity));
     }
 
