@@ -1,4 +1,4 @@
-package org.springboot.riwi.chronoturner.backend.Controllers.GenericMethods;
+package org.springboot.riwi.chronoturner.backend.Controllers.genericMethods;
 
 import org.springframework.http.ResponseEntity;
 
