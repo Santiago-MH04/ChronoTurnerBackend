@@ -60,7 +60,7 @@ public class GoalController implements InterfaceGoalControl {
     @Override
     @GetMapping("/readAll")
     public ResponseEntity<List<GoalResponse>> readAll() {
-        List<GoalResponse> list= goalService.readAll().orElseThrow(()->new WithoutGoalsException("No hay tareas existentes"));
+        List<GoalResponse> list= goalService.readAll().orElseThrow(()->new WithoutGoalsException("No hay metas existentes"));
         return  ResponseEntity.ok(list);
     }
 
@@ -68,17 +68,17 @@ public class GoalController implements InterfaceGoalControl {
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable String id) {
 
-        GoalResponse goalResponse = goalService.readById(id).orElseThrow(()->new NoUserIdException("Este usuario no existe"));
+        GoalResponse goalResponse = goalService.readById(id).orElseThrow(()->new NoUserIdException("Este meta no existe"));
         goalService.delete(goalResponse,id);
-        return "Usuario borrado con exito";
+        return "Meta borrada con exito";
     }
 
     @Override
     @RequestMapping(value = "/update/{id}", method = {RequestMethod.PUT, RequestMethod.PATCH})
     public String put(@RequestBody GoalRequest goalRequest,@PathVariable String id) {
-        GoalResponse goalResponse= goalService.readById(id).orElseThrow(()->new NoUserIdException("Este usuario no existe"));
+        GoalResponse goalResponse= goalService.readById(id).orElseThrow(()->new NoUserIdException("Esta meta no existe"));
         goalService.put(goalRequest,id,goalResponse);
-        return "Entidad actualizada correcta mente";
+        return "Meta actualizada correctamente";
     }
 
 

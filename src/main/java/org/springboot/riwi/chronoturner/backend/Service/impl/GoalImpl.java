@@ -55,7 +55,7 @@ public class GoalImpl implements IGoalService {
     @Override
     public Optional<List<GoalResponse>> readAll() {
 
-        List<GoalResponse> lista= goalRepository.findAll().stream()
+        List<GoalResponse> list= goalRepository.findAll().stream()
                 .map(goal -> new GoalResponse().builder()
                         .name(goal.getName())
                         .description(goal.getDescription())
@@ -63,7 +63,7 @@ public class GoalImpl implements IGoalService {
                         .endDate(goal.getEndDate())
                         .status(goal.getStatus())
                         .build()).collect(Collectors.toList());
-        return Optional.ofNullable(lista);
+        return Optional.ofNullable(list);
     }
 
     @Override
