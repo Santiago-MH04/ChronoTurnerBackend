@@ -1,4 +1,4 @@
-package org.springboot.riwi.chronoturner.backend.Controllers.InterfacesPerEntityControllers;
+package org.springboot.riwi.chronoturner.backend.controllers.InterfacesPerEntityControllers;
 
 public interface InterfaceTaskControl {
 }

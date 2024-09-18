@@ -1,4 +1,4 @@
-package org.springboot.riwi.chronoturner.backend.Controllers.ImpleControllers;
+package org.springboot.riwi.chronoturner.backend.controllers.ImpleControllers;
 
 public class TaskController {
 }

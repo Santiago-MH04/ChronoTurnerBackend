@@ -1,6 +1,6 @@
 package org.springboot.riwi.chronoturner.backend.Controllers.InterfacesPerEntityControllers;
 
-import org.springboot.riwi.chronoturner.backend.Controllers.genericMethods.*;
+import org.springboot.riwi.chronoturner.backend.controllers.genericMethods.*;
 import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequest;
 import org.springboot.riwi.chronoturner.backend.dtos.response.GoalResponse;
 

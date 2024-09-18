@@ -103,7 +103,7 @@ public class HandlerExceptionController {
     public ErrorSimple noUserId(NoUserIdException exception){
 
         return ErrorsResponse.builder()
-                .code(404)
+                .code(400)
                 .status(HttpStatus.BAD_GATEWAY.name())
                 .message(exception.getMessage())
                 .build();
