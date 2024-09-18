@@ -6,9 +6,10 @@ import org.springboot.riwi.chronoturner.backend.controllers.InterfacesPerEntityC
 
 import org.springboot.riwi.chronoturner.backend.Service.interfaces.IGoalService;
 import org.springboot.riwi.chronoturner.backend.dtos.exception.NoUserIdException;
-import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequestDTO;
+import org.springboot.riwi.chronoturner.backend.dtos.exception.WithoutGoalsException;
+import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequest;
 import org.springboot.riwi.chronoturner.backend.dtos.response.GoalResponse;
-import org.springboot.riwi.chronoturner.backend.entities.Goal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.ServiceUnavailableException;
 import java.net.SocketTimeoutException;
 
+import java.util.List;
+
 
 
 @RestController
 @RequestMapping("/goals")
 @Tag(name="Goals")
-public class GoalController implements InterfaceGoalControl {   //Mover a la carpeta controllerImplementations, una vez se hayan resuelto los errores
-
-
+public class GoalController implements InterfaceGoalControl { //Mover a la carpeta correspondiente, una vez se hayan resuelto los errores
     @Autowired
     IGoalService goalService;
 
@@ -35,19 +36,18 @@ public class GoalController implements InterfaceGoalControl {   //Mover a la car
 
     @Override
     @PostMapping
-    public ResponseEntity<Goal> create(@RequestBody  @Valid GoalRequestDTO goal) throws ServiceUnavailableException {
+    public ResponseEntity<String> create(@RequestBody  @Valid GoalRequest goal) throws ServiceUnavailableException {
         if (maintenanceMode) {
             throw new ServiceUnavailableException("El servidor está en mantenimiento. Por favor, inténtelo más tarde.");
         }
-        return ResponseEntity.ok(goalService.create(goal));
+        goalService.create(goal);
+        return ResponseEntity.ok("Hay una nueva meta creada");
     }
 
     @Override
     @GetMapping("/{id}")
     public ResponseEntity<GoalResponse> ById(@PathVariable String id) {
-
         GoalResponse goalResponse = goalService.readById(id).orElseThrow(()->new NoUserIdException("Este usuario no existe"));
-
         return ResponseEntity.ok(goalResponse);
     }
 
@@ -57,4 +57,28 @@ public class GoalController implements InterfaceGoalControl {   //Mover a la car
         throw new SocketTimeoutException("Simulated timeout exception");
     }
 
+
+    @Override
+    @GetMapping("/readAll")
+    public ResponseEntity<List<GoalResponse>> readAll() {
+        List<GoalResponse> list= goalService.readAll().orElseThrow(()->new WithoutGoalsException("No hay metas existentes"));
+        return  ResponseEntity.ok(list);
+    }
+
+    @Override
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable String id) {
+
+        GoalResponse goalResponse = goalService.readById(id).orElseThrow(()->new NoUserIdException("Este meta no existe"));
+        goalService.delete(goalResponse,id);
+        return "Meta borrada con exito";
+    }
+
+    @Override
+    @RequestMapping(value = "/update/{id}", method = {RequestMethod.PUT, RequestMethod.PATCH})
+    public String put(@RequestBody GoalRequest goalRequest,@PathVariable String id) {
+        GoalResponse goalResponse= goalService.readById(id).orElseThrow(()->new NoUserIdException("Esta meta no existe"));
+        goalService.put(goalRequest,id,goalResponse);
+        return "Meta actualizada correctamente";
+    }
 }

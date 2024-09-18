@@ -45,5 +45,4 @@ public class Goal {
         }
         this.status = StatusGoal.STARTED;
     }
-
 }

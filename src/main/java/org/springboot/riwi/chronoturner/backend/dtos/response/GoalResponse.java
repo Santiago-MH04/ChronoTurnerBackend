@@ -20,7 +20,7 @@ public class GoalResponse {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private StatusGoal status;
-
+  
     //Constructores de CLASE
     //Asignadores de atributos de CLASE (setters)
     //Lectores de atributos de CLASE (getters)
