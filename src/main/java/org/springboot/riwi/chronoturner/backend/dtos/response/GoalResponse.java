@@ -13,11 +13,16 @@ import java.time.LocalDateTime;
 @ToString
 @Builder
 public class GoalResponse {
-
+        //Atributos de CLASE
     //private String id;
     private String name;
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private StatusGoal status;
+  
+    //Constructores de CLASE
+    //Asignadores de atributos de CLASE (setters)
+    //Lectores de atributos de CLASE (getters)
+    //Métodos de CLASE
 }

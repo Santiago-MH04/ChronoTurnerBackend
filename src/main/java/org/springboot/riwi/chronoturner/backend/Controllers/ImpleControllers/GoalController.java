@@ -3,17 +3,20 @@ package org.springboot.riwi.chronoturner.backend.controllers.ImpleControllers;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springboot.riwi.chronoturner.backend.controllers.InterfacesPerEntityControllers.InterfaceGoalControl;
+
 import org.springboot.riwi.chronoturner.backend.Service.interfaces.IGoalService;
 import org.springboot.riwi.chronoturner.backend.dtos.exception.NoUserIdException;
 import org.springboot.riwi.chronoturner.backend.dtos.exception.WithoutGoalsException;
 import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequest;
 import org.springboot.riwi.chronoturner.backend.dtos.response.GoalResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.naming.ServiceUnavailableException;
 import java.net.SocketTimeoutException;
+
 import java.util.List;
 
 
@@ -21,9 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/goals")
 @Tag(name="Goals")
-public class GoalController implements InterfaceGoalControl {
-
-
+public class GoalController implements InterfaceGoalControl { //Mover a la carpeta correspondiente, una vez se hayan resuelto los errores
     @Autowired
     IGoalService goalService;
 
@@ -36,7 +37,6 @@ public class GoalController implements InterfaceGoalControl {
     @Override
     @PostMapping
     public ResponseEntity<String> create(@RequestBody  @Valid GoalRequest goal) throws ServiceUnavailableException {
-
         if (maintenanceMode) {
             throw new ServiceUnavailableException("El servidor está en mantenimiento. Por favor, inténtelo más tarde.");
         }
@@ -56,6 +56,7 @@ public class GoalController implements InterfaceGoalControl {
     public ResponseEntity<String> testTimeout() throws SocketTimeoutException {
         throw new SocketTimeoutException("Simulated timeout exception");
     }
+
 
     @Override
     @GetMapping("/readAll")
@@ -80,7 +81,4 @@ public class GoalController implements InterfaceGoalControl {
         goalService.put(goalRequest,id,goalResponse);
         return "Meta actualizada correctamente";
     }
-
-
-
 }
