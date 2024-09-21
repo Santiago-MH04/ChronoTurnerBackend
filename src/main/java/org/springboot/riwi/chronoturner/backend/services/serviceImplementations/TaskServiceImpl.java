@@ -22,7 +22,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task save(TaskRequestDTO entity) {
-        return this.repoTask.save(entity);
+        /*return this.repoTask.save(entity);*/
+        return null;
     }
 
     @Override
@@ -31,7 +32,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void remove(String id) {
+    public void removeById(String id) {
         this.repoTask.deleteById(id);
     }
 }

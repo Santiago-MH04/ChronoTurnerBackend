@@ -2,7 +2,7 @@ package org.springboot.riwi.chronoturner.backend.services.methodServices;
 
 import java.util.List;
 
-public interface ReadAllService<Entity> {
+public interface ReadAllService<Entity> {   //Se queda el mío
     //Atributos de readAll
     //Constructores de readAll
     //Asignadores de atributos de readAll (setters)

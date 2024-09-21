@@ -21,7 +21,7 @@ public class PriorityServiceImpl implements PriorityService {
         return this.repoPriority.findAll();
     }
     @Override
-    public void remove(String id) {
+    public void removeById(String id) {
         this.repoPriority.deleteById(id);
     }
 }

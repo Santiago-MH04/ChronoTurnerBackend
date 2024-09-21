@@ -48,6 +48,6 @@ public class TaskController implements InterfaceTaskControl {   //Aquí falta ta
     @GetMapping("/remove/{id}")
     public void removeEntity(String id) {
         /*ResponseEntity.ok(this.taskService.remove(id));*/
-        this.taskService.remove(id);
+        this.taskService.removeById(id);
     }
 }

@@ -42,7 +42,7 @@ public class CategoryController implements InterfaceCategoryControl {
     @GetMapping("/remove/{id}")
     public void removeEntity(String id) {
         /*this.categoryService.remove(category.getId());*/
-        this.categoryService.remove(id);
+        this.categoryService.removeById(id);
     }
 
     @Override

@@ -6,5 +6,5 @@ public interface RemoveService<id> {
     //Asignadores de atributos de RemoveService (setters)
     //Lectores de atributos de RemoveService (getters)
         //Métodos de RemoveService
-    public void remove(id id);
+    public void removeById(id id);
 }

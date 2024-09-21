@@ -1,6 +1,6 @@
 package org.springboot.riwi.chronoturner.backend.services.methodServices;
 
-public interface UpdateService<Entity>{
+public interface UpdateService<Entity>{ //Se puede ir
     //Atributos de UpdateService
     //Constructores de UpdateService
     //Asignadores de atributos de UpdateService (setters)

@@ -1,6 +1,6 @@
 package org.springboot.riwi.chronoturner.backend.Service.impl;
 
-import org.springboot.riwi.chronoturner.backend.Repository.GoalRepository;
+import org.springboot.riwi.chronoturner.backend.repositories.GoalRepository;
 import org.springboot.riwi.chronoturner.backend.Service.interfaces.IGoalService;
 
 import org.springboot.riwi.chronoturner.backend.dtos.request.GoalRequest;
@@ -34,7 +34,8 @@ public class GoalImpl implements IGoalService {
     @Override
     public Optional<GoalResponse> readById(String id) {
           // mapeo entidad -> Entidad de respuesta
-        return goalRepository.findById(id).map(goal-> new GoalResponse().builder()
+        return goalRepository.findById(id)
+                .map(goal-> new GoalResponse().builder()
                 .name(goal.getName())
                 .description(goal.getDescription())
                 .startDate(goal.getStartDate())

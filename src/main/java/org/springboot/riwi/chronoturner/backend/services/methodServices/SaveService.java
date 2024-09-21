@@ -6,5 +6,5 @@ public interface SaveService<Entity, EntityRequestDTO>{
     //Asignadores de atributos de SaveService (setters)
     //Lectores de atributos de SaveService (getters)
         //Métodos de SaveService
-    public Entity save(EntityRequestDTO entity);
+    public Entity save(EntityRequestDTO entityRequest);
 }

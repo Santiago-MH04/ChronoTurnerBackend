@@ -1,6 +1,6 @@
 package org.springboot.riwi.chronoturner.backend.services.methodServices;
 
-public interface ReadByIdService<id, Entity> {
+public interface ReadByIdService<id, Entity> {  //Se queda el mío
     //Atributos de readById
     //Constructores de readById
     //Asignadores de atributos de readById (setters)
